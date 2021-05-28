@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleDemo.MainPage">
+    
+    <StackLayout>
+        <ListView  
+            ItemsSource="{Binding Users}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid 
+                            RowDefinitions="50,50">
+                            <Label 
+                                Grid.Row="0" 
+                                Text="{Binding name}"/>
+                            <!--<Label 
+                                Grid.Row="1" 
+                                Text="{Binding address.FullAdress}"/>-->
+                            <Label Grid.Row="1">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{Binding address.street}"/>
+                                            <Span Text="{Binding address.suite}"/>
+                                            <Span Text="{Binding address.city}"/>
+                                            <Span Text="{Binding address.zipcode}"/>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
